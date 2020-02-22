@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form</title>
+
+</head>
+<body>
+ <form name="exampleform"  method="get" >
+ 	<label for="fn">First Name</label>
+ 	<br/>
+ 	<input type="text" name="firstname" id="fn">
+ 	<br/>
+ 	<label for="ln">Last Name</label>
+ 	<br/>
+ 	<input type="text" name="lastname" id="ln">
+ 	<br/>
+ 	<label for="em">Email</label>
+ 	<br/>
+ 	<input type="email" name="email" id="em">
+ 	<br/>
+ 	<label for="cn">Contect Number</label>
+ 	<br/>
+ 	<input type="text" name="Contect" id="cn">
+    <br/>
+    <label id="ad">Address</label>
+    <br/>
+    <textarea name="address" id="ad"></textarea>
+ 	<br/>
+ 	<label for="un">Username</label>
+ 	<br/>
+ 	<input type="text" name="user" id="un">
+    <br/>
+ 	<label for="ps">Password</label>
+ 	<br/>
+ 	<input type="password" name="Password" id="ps">
+ 	<br/>
+ 	<label>Gender</label>
+ 	<br/>
+ 	<input type="radio" name="gender" id="m">Male
+ 	<input type="radio" name="gender" id="f">Female
+ 	<br/>
+ 	<br/>
+ 	<label id="qu">Qualification</label>
+ 	<br/>
+
+ 	<select id="qu" >
+ 		
+ 		<script>
+
+      //dropdown by array
+
+ 			var qualification = ["--SELECT--","BE","BTech","Diploma"];
+ 		 for (var i = 0; i < qualification.length; i++) {
+ 		document.write('<option value="'+qualification[i]+'">'+qualification[i]+"</option>");}
+ 	</script> 
+
+ 	</select>
+ 	<br/>
+ 	<br/>
+ 	<label id="ex">Experience</label>
+ 	<br/>
+ 	<select id="ex">
+ 		<script>
+      //dropdown by array
+ 			var experience = ["--SELECT--","0-1 year","2-3 year","3-5 year","more than 5 year"];
+ 		 for (var i = 0; i < experience.length; i++) {
+ 		document.write('<option  value=" '+experience[i]+'" >'+experience[i]+"</option>");}
+ 	</script> 
+ 	</select>
+ 	<br/>
+ 	<br/>
+ 	<label id="cl">Coding Language</label>
+ 	<br/>
+    <script>
+      //checkbox by array
+	var languages= [
+                   {LanguageName : 'C/C++'  ,  IsEnable : false},
+                   {LanguageName : 'JAVA'   ,  IsEnable : true},
+                   {LanguageName : 'C#'     ,  IsEnable : true},
+                   {LanguageName : 'JAVA'   ,  IsEnable : false},
+                   {LanguageName : 'PYTHON' ,  IsEnable : false}
+                   ]
+
+                   for (var i = 0; i < languages.length; i++) {
+                  document.write('<input type="checkbox"  id="cl" value="'+languages[i].LanguageName+'" checked="'+languages[i].IsEnable+'"/>'+languages[i].LanguageName+"<br/>" );
+                    }
+                </script>
+
+ 
+<br/>
+<button type="button"  onclick="submit()">Submit</button>
+</form>
+<div id ="space"></div>
+</body>
+</html>
+<script type="text/javascript"> 
+   
+  function  submit() {
+
+	var profile ={
+
+              //storing text boxes
+              firstname : document.getElementById('fn').value,
+              lastname : document.getElementById('ln').value,
+              email : document.getElementById('em').value,
+              contect : document.getElementById('cn').value,
+              address : document.getElementById('ad').value,
+              user : document.getElementById('un').value,
+              //storing radio options
+              m : document.getElementById('m'),
+              f : document.getElementById('f'),
+              gender : (m.checked==true) ? m.value : f.value
+
+               //storing dropdown list
+
+              qu : document.getElementById('qu'),
+              qualification : qu.options[qu.selectedIndex].value ,
+
+              ex : document.getElementById('ex'),
+              experience : ex.options[ex.selectedIndex].value ,
+
+              //storing checkbox
+              languages : document.getElementById('cl').value,
+
+}
+
+ 
+   //printing to console
+
+ console.log(profile);
+}
+
+</script>
